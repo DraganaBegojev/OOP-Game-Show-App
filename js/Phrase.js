@@ -1,7 +1,4 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Phrase.js */
-
+// pharse display logic
 class Phrase {
   constructor(phrase) {
     this.phrase = phrase.toLowerCase();

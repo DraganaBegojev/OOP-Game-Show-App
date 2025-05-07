@@ -1,7 +1,4 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Game.js */
-
+// game logic
 class Game {
     constructor() {
         this.missed = 0;
@@ -14,10 +11,12 @@ class Game {
         ];
         this.activePhrase = null;
     }
+    // select a random phrase from the phrases array
     getRandomPhrase() {
         const randomIndex = Math.floor(Math.random() * this.phrases.length);
         return this.phrases[randomIndex];
     }
+    // initialize the game
     startGame() {
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
