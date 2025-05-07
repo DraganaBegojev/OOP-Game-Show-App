@@ -6,6 +6,7 @@ class Phrase {
   constructor(phrase) {
     this.phrase = phrase.toLowerCase();
   }
+  // display the phrase on the game board
   addPhraseToDisplay() {
     const phraseContainer = document.querySelector('#phrase ul');
     const phraseArray = this.phrase.split('');
