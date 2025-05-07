@@ -18,4 +18,9 @@ class Game {
         const randomIndex = Math.floor(Math.random() * this.phrases.length);
         return this.phrases[randomIndex];
     }
+    startGame() {
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+        document.querySelector('#overlay').style.display = 'none';
+    }
 }
