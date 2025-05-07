@@ -2,8 +2,13 @@
  * Project 4 - OOP Game App
  * app.js */
 
-// phrase instance
-const phrase = new Phrase('yay for treehouse fsjs techdegree!');
+const logPhrase = (phrase) => {
+    console.log(`Phrase - phrase: `, phrase.phrase);
+    };
+const game = new Game();
 
-// game instance
-const game = new Game();    
+logPhrase(game.getRandomPhrase());
+logPhrase(game.getRandomPhrase());
+logPhrase(game.getRandomPhrase());
+logPhrase(game.getRandomPhrase());
+logPhrase(game.getRandomPhrase());
