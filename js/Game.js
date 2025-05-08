@@ -52,4 +52,20 @@ class Game {
             overlay.classList.add('lose');
         }
     }
+    // handle the letter button click
+    handleInteraction(button) {
+        const letter = button.textContent;
+        button.disabled = true;
+
+        if (this.activePhrase.checkLetter(letter)) {
+            button.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(letter);
+            if (this.checkForWin()) {
+                this.gameOver(true);
+            }
+        } else {
+            button.classList.add('wrong');
+            this.removeLife();
+        }
+    }
 }
