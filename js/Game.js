@@ -22,4 +22,9 @@ class Game {
         this.activePhrase.addPhraseToDisplay();
         document.querySelector('#overlay').style.display = 'none';
     }
+    // check win or lose
+    checkForWin() {
+        const hiddenLetters = document.querySelectorAll('#phrase li.letter.hide');
+        return hiddenLetters.length === 0;
+    }
 }
