@@ -27,4 +27,29 @@ class Game {
         const hiddenLetters = document.querySelectorAll('#phrase li.letter.hide');
         return hiddenLetters.length === 0;
     }
+    // life lost
+    removeLife() {
+        this.missed++;
+        const hearts = document.querySelectorAll('.tries img');
+        hearts[this.missed - 1].src = 'images/lostHeart.png';
+        if (this.missed === 5) {
+            this.gameOver(false);
+        }
+    }
+    // game over logic
+    gameOver(gameWon) {
+        const overlay = document.querySelector('#overlay'); 
+        const message = document.querySelector('#overlay h1');
+        overlay.style.display = 'flex';
+    
+        if (gameWon) {
+            message.textContent = 'Congratulations! You won!';
+            overlay.classList.remove('start');
+            overlay.classList.add('win');
+        } else {
+            message.textContent = 'Sorry, you lost. Try again!';
+            overlay.classList.remove('start');
+            overlay.classList.add('lose');
+        }
+    }
 }
