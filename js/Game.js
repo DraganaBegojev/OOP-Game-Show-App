@@ -18,6 +18,22 @@ class Game {
     }
     // initialize the game
     startGame() {
+        // Reset everything
+        const phraseUL = document.querySelector('#phrase ul');
+        phraseUL.innerHTML = '';
+
+        const keys = document.querySelectorAll('#qwerty button');
+        keys.forEach(button => {
+            button.disabled = false;
+            button.className = 'key';
+        });
+
+        const hearts = document.querySelectorAll('.tries img');
+        hearts.forEach(img => {
+            img.src = 'images/liveHeart.png';
+        });
+
+        this.missed = 0;
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
         document.querySelector('#overlay').style.display = 'none';
@@ -41,14 +57,15 @@ class Game {
         const overlay = document.querySelector('#overlay'); 
         const message = document.querySelector('#overlay h1');
         overlay.style.display = 'flex';
-    
+
+        // Remove previous game state classes
+        overlay.classList.remove('start', 'win', 'lose');
+
         if (gameWon) {
             message.textContent = 'Congratulations! You won!';
-            overlay.classList.remove('start');
             overlay.classList.add('win');
         } else {
             message.textContent = 'Sorry, you lost. Try again!';
-            overlay.classList.remove('start');
             overlay.classList.add('lose');
         }
     }
