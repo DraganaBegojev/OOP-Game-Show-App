@@ -18,4 +18,16 @@ class Phrase {
       phraseContainer.appendChild(li);
     });
   }
+  // check if the letter is in the phrase
+  checkLetter(letter) {
+    return this.phrase.includes(letter);
+  }
+  // show the letter on the game board
+  showMatchedLetter(letter) {
+    const letters = document.querySelectorAll(`#phrase li.${letter}`);
+    letters.forEach((li) => {
+      li.classList.remove('hide');
+      li.classList.add('show');
+    });
+  }
 }
