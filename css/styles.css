@@ -64,8 +64,8 @@ button {
 	width: 200px;
 	margin: 0 auto;
 }
-#btn__reset:hover {
-  background-color: #78CF82;
+#btn__reset:hover { 
+  background-color: #4ac0d5;
   color: #fff;
 }
 
