@@ -35,3 +35,9 @@ To start a new game, you can now press the Enter key, but only if the game is cu
     When Pressing Enter:
     If the overlay is visible (indicating the game is inactive), pressing Enter will create a new game instance and start the game.
     If the game is active, pressing Enter will have no effect.
+
+#  Letter Reveal Animation
+
+To enhance the visual feedback when a letter is revealed, a subtle fade and scale-in animation was added.
+    A new CSS class called .revealed was created.
+    And the showMatchedLetter(letter) method was updated.
