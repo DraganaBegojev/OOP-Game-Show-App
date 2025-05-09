@@ -41,3 +41,7 @@ To start a new game, you can now press the Enter key, but only if the game is cu
 To enhance the visual feedback when a letter is revealed, a subtle fade and scale-in animation was added.
     A new CSS class called .revealed was created.
     And the showMatchedLetter(letter) method was updated.
+
+# Start Button Hover Effect
+
+A visual hover effect was added to the "Start Game" button to enhance interactivity and provide a more dynamic user experience. When a user hovers over the button, it now changes color and slightly scales up, indicating it's clickable.

@@ -64,9 +64,12 @@ button {
 	width: 200px;
 	margin: 0 auto;
 }
-#btn__reset:hover { 
+
+#btn__reset:hover {
   background-color: #4ac0d5;
   color: #fff;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
 }
 
 .main-container {
