@@ -209,3 +209,20 @@ button {
   background-color: #ccc;
   transition: transform 0.1s, background-color 0.1s;
 }
+
+/* Letter animation */
+
+.revealed {
+  animation: fadeScaleIn 0.4s ease;
+}
+
+@keyframes fadeScaleIn {
+  0% {
+      opacity: 0;
+      transform: scale(0.5);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
+}

@@ -27,7 +27,7 @@ class Phrase {
     const letters = document.querySelectorAll(`#phrase li.${letter}`);
     letters.forEach((li) => {
       li.classList.remove('hide');
-      li.classList.add('show');
+      li.classList.add('show', 'revealed');
     });
   }
 }
