@@ -64,6 +64,10 @@ button {
 	width: 200px;
 	margin: 0 auto;
 }
+#btn__reset:hover {
+  background-color: #78CF82;
+  color: #fff;
+}
 
 .main-container {
   display: flex;
