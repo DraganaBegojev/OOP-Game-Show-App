@@ -15,3 +15,16 @@ qwerty.addEventListener('click', (e) => {
         game.handleInteraction(target);
     }
 });
+
+// handle physical keyboard presses
+document.addEventListener('keydown', (e) => {
+    const letter = e.key.toLowerCase();
+    if (!/^[a-z]$/.test(letter)) return; // only allow a-z letters
+
+    const button = Array.from(document.querySelectorAll('#qwerty button'))
+        .find(btn => btn.textContent === letter);
+
+    if (button && !button.disabled) {
+        game.handleInteraction(button);
+    }
+});
