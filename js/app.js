@@ -31,6 +31,8 @@ qwerty.addEventListener('click', (e) => {
 
 // handle physical keyboard presses
 document.addEventListener('keydown', (e) => {
+    if (overlay.style.display !== 'none') return;
+
     const letter = e.key.toLowerCase();
     if (!/^[a-z]$/.test(letter)) return; // skip non-letters
 
