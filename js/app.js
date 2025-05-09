@@ -8,6 +8,13 @@ startButton.addEventListener('click', () => {
     game.startGame();
 });
 
+// Initialize the game when the Enter key is pressed
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && overlay.style.display !== 'none') {  // Check if the start button is visible
+        game = new Game();  // Create a new game instance
+        game.startGame();   // Start the game
+    }
+});
 // handle the letter button clicks
 qwerty.addEventListener('click', (e) => {
     const target = e.target;

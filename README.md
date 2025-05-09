@@ -23,3 +23,15 @@ A fade-out effect has been added to the overlay when starting a new game, as wel
 - Game Over Screen:
     When the game ends (either through winning or losing), the overlay fades in with a smooth transition, displaying the final message.
     The gameOver() method has been updated to include a fade-in effect when the overlay becomes visible.
+
+
+# Start a New Game with Enter Key
+
+To start a new game, you can now press the Enter key, but only if the game is currently inactive (i.e., the start screen is visible). This ensures that a new game can only be started after the previous game has ended.
+
+    How It Works:
+    Condition: The game will only start when the overlay (start screen) is visible.
+
+    When Pressing Enter:
+    If the overlay is visible (indicating the game is inactive), pressing Enter will create a new game instance and start the game.
+    If the game is active, pressing Enter will have no effect.
