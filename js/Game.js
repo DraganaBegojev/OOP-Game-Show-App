@@ -18,25 +18,40 @@ class Game {
     }
     // initialize the game
     startGame() {
-        // Reset everything
-        const phraseUL = document.querySelector('#phrase ul');
-        phraseUL.innerHTML = '';
-
+        // Reset the keyboard buttons immediately
         const keys = document.querySelectorAll('#qwerty button');
         keys.forEach(button => {
-            button.disabled = false;
-            button.className = 'key';
+            button.disabled = false;  // Enable all buttons
+            button.classList.remove('chosen', 'wrong');  // Remove 'chosen' and 'wrong' classes
         });
-
+    
+        // Reset phrase display
+        const phraseUL = document.querySelector('#phrase ul');
+        phraseUL.innerHTML = '';
+    
+        // Reset hearts
         const hearts = document.querySelectorAll('.tries img');
         hearts.forEach(img => {
             img.src = 'images/liveHeart.png';
         });
-
+    
+        // Reset the missed guesses count
         this.missed = 0;
+    
+        // Pick a new random phrase
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-        document.querySelector('#overlay').style.display = 'none';
+    
+        // Hide the overlay with a short delay
+        const overlay = document.querySelector('#overlay');
+        overlay.style.transition = 'opacity 0.5s ease';
+        overlay.style.opacity = '0';
+    
+        // Wait for the fade-out to complete before hiding the overlay and starting the game
+        setTimeout(() => {
+            overlay.style.display = 'none'; 
+            overlay.style.opacity = '1'; 
+        }, 500);  // Wait 500ms for the fade-out animation
     }
     // check win or lose
     checkForWin() {
@@ -56,11 +71,14 @@ class Game {
     gameOver(gameWon) {
         const overlay = document.querySelector('#overlay'); 
         const message = document.querySelector('#overlay h1');
+    
+        // Prepare overlay but keep it hidden for animation
+        overlay.style.opacity = '0';
         overlay.style.display = 'flex';
-
-        // Remove previous game state classes
+    
+        // Remove previous classes
         overlay.classList.remove('start', 'win', 'lose');
-
+    
         if (gameWon) {
             message.textContent = 'Congratulations! You won!';
             overlay.classList.add('win');
@@ -68,7 +86,14 @@ class Game {
             message.textContent = 'Sorry, you lost. Try again!';
             overlay.classList.add('lose');
         }
+    
+        // Fade in after short delay
+        setTimeout(() => {
+            overlay.style.transition = 'opacity 0.5s ease';
+            overlay.style.opacity = '1';
+        }, 500);
     }
+    
     // handle the letter button click
     handleInteraction(button) {
         const letter = button.textContent;

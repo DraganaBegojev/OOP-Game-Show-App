@@ -202,3 +202,10 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+/* Press animation */
+.pressed {
+  transform: scale(0.95);
+  background-color: #ccc;
+  transition: transform 0.1s, background-color 0.1s;
+}

@@ -12,19 +12,31 @@ startButton.addEventListener('click', () => {
 qwerty.addEventListener('click', (e) => {
     const target = e.target;
     if (target.tagName === 'BUTTON') {
-        game.handleInteraction(target);
+        // Add visual press effect
+        target.classList.add('pressed');
+        setTimeout(() => {
+        target.classList.remove('pressed');
+         }, 100);
+        
+         game.handleInteraction(target);
     }
 });
 
 // handle physical keyboard presses
 document.addEventListener('keydown', (e) => {
     const letter = e.key.toLowerCase();
-    if (!/^[a-z]$/.test(letter)) return; // only allow a-z letters
+    if (!/^[a-z]$/.test(letter)) return; // skip non-letters
 
     const button = Array.from(document.querySelectorAll('#qwerty button'))
         .find(btn => btn.textContent === letter);
 
     if (button && !button.disabled) {
+        // Add visual press effect
+        button.classList.add('pressed');
+        setTimeout(() => {
+            button.classList.remove('pressed');
+        }, 100);
+
         game.handleInteraction(button);
     }
 });
