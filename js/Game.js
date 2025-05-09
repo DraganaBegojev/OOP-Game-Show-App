@@ -51,7 +51,7 @@ class Game {
         setTimeout(() => {
             overlay.style.display = 'none'; 
             overlay.style.opacity = '1'; 
-        }, 500);  // Wait 500ms for the fade-out animation
+        }, 600);  
     }
     // check win or lose
     checkForWin() {
@@ -91,7 +91,7 @@ class Game {
         setTimeout(() => {
             overlay.style.transition = 'opacity 0.5s ease';
             overlay.style.opacity = '1';
-        }, 500);
+        }, 600);
     }
     
     // handle the letter button click
